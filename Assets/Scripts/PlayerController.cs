@@ -11,25 +11,13 @@ public class PlayerController : MonoBehaviour
     {
 
         //Controladores de disparo 
-        if (Input.GetKeyDown(KeyCode.D))
-        {
-            SpawnProjectile(Quaternion.Euler(0, 90, 0));
-        }
+        ShotControlHoriz(KeyCode.A, -90);
+        ShotControlHoriz(KeyCode.D, 90);
 
-         if (Input.GetKeyDown(KeyCode.W))
-        {
-            SpawnProjectile(Quaternion.Euler(-90, 0, 0));
-        }
+        //Controladores de disparo Verticalmente
+        ShotControlVert(KeyCode.W, -90);
+        ShotControlVert(KeyCode.S, 90);
 
-        if (Input.GetKeyDown(KeyCode.S))
-        {
-            SpawnProjectile(Quaternion.Euler(90, 0, 0));
-        }
-
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            SpawnProjectile(Quaternion.Euler(0, -90, 0));
-        }
     }
 
 
@@ -38,5 +26,22 @@ public class PlayerController : MonoBehaviour
     {
         Instantiate(projectil, transform.position, Rotation);
     }
-  
+
+    //Funciones para el controlador de disparos
+    public void ShotControlHoriz(KeyCode Key, float Rotation)
+    {
+        if (Input.GetKeyDown(Key))
+        {
+            SpawnProjectile(Quaternion.Euler(0,Rotation,0));
+        }
+    }
+
+    public void ShotControlVert(KeyCode Key, float Rotation)
+    {
+        if (Input.GetKeyDown(Key))
+        {
+            SpawnProjectile(Quaternion.Euler(Rotation, 0, 0));
+        }
+    }
+
 }

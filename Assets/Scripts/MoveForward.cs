@@ -9,14 +9,13 @@ public class MoveForward : MonoBehaviour
     private float speed = 2f;
 
 
-
-
     // Update is called once per frame
     void Update()
     {
+
+
         //Velocidad constante
         transform.Translate(Vector3.forward * speed * Time.deltaTime);
-
 
 
         //Limitador de distancia en horizontal
@@ -31,7 +30,6 @@ public class MoveForward : MonoBehaviour
         }
 
 
-
         //Limitador de distancia en vertical
         if (transform.position.y > verticalLimit)
         {
@@ -42,5 +40,6 @@ public class MoveForward : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
     }
 }
